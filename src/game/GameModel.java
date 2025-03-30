@@ -123,33 +123,26 @@ public class GameModel {
 
         // Check if asteroid should spawn
         boolean spawnAsteroid = random.nextInt(100) < spawnRate;
-
         // Asteroid x position
         int asteroidX = random.nextInt(GAME_WIDTH);
-
         if (spawnAsteroid && (ship == null || ship.getX() != asteroidX || ship.getY() != 0)) {
             addObject(new Asteroid(asteroidX, 0));
         }
 
         // Check if enemy should spawn
         boolean spawnEnemy = random.nextInt(100) < (spawnRate * ENEMY_SPAWN_RATE);
-
         // Enemy x position
         int enemyX = random.nextInt(GAME_WIDTH);
-
         if (spawnEnemy && (ship == null || ship.getX() != enemyX || ship.getY() != 0)) {
             addObject(new Enemy(enemyX, 0));
         }
 
         // Check if power-up should spawn
         boolean spawnPowerUp = random.nextInt(100) < (spawnRate * POWER_UP_SPAWN_RATE);
-
         // Power-up x position
         int powerUpX = random.nextInt(GAME_WIDTH);
-
         // Determine power-up type
         boolean isShield = random.nextBoolean();
-
         if (spawnPowerUp && (ship == null || ship.getX() != powerUpX || ship.getY() != 0)) {
             if (isShield) {
                 addObject(new ShieldPowerUp(powerUpX, 0));
