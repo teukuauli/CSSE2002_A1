@@ -125,7 +125,7 @@ public class GameModel {
         boolean spawnAsteroid = random.nextInt(100) < spawnRate;
         // Asteroid x position
         int asteroidX = random.nextInt(GAME_WIDTH);
-        if (spawnAsteroid && (ship == null || ship.getX() != asteroidX || ship.getY() != 0)) {
+        if (spawnAsteroid) {
             addObject(new Asteroid(asteroidX, 0));
         }
 
