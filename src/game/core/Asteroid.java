@@ -15,17 +15,7 @@ public class Asteroid extends DescendingEnemy {
     public Asteroid(int x, int y) {
         super(x, y);
     }
-
-    /**
-     * Updates the asteroid's position based on the current game tick.
-     */
-    @Override
-    public void tick(int tick) {
-        // Movement logic for asteroid
-        // Basic implementation: move downward
-        this.y += 1;
-    }
-
+    
     /**
      * Returns a new ObjectGraphic with the appropriate text representation and image path.
      *
