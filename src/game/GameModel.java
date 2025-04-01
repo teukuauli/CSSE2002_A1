@@ -121,29 +121,29 @@ public class GameModel {
         // Asteroid spawn logic
         int asteroidChance = random.nextInt(100);
         if (asteroidChance < spawnRate) {
-            int xPos = random.nextInt(GAME_WIDTH);
-            spaceObjects.add(new Asteroid(xPos, 0));
+            int asteroidX = random.nextInt(GAME_WIDTH);
+            spaceObjects.add(new Asteroid(asteroidX, 0));
         }
         
         // Enemy spawn logic
         int enemyChance = random.nextInt(100);
         if (enemyChance < spawnRate * ENEMY_SPAWN_RATE) {
-            int xPos = random.nextInt(GAME_WIDTH);
-            spaceObjects.add(new Enemy(xPos, 0));
+            int enemyX = random.nextInt(GAME_WIDTH);
+            spaceObjects.add(new Enemy(enemyX, 0));
         }
         
         // Power-up spawn logic
         int powerUpChance = random.nextInt(100);
         if (powerUpChance < spawnRate * POWER_UP_SPAWN_RATE) {
-            int xPos = random.nextInt(GAME_WIDTH);
+            int powerupX = random.nextInt(GAME_WIDTH);
             boolean isShield = random.nextBoolean();
             
             // Create appropriate power-up type
             SpaceObject powerUp;
             if (isShield) {
-                powerUp = new ShieldPowerUp(xPos, 0);
+                powerUp = new ShieldPowerUp(powerupX, 0);
             } else {
-                powerUp = new HealthPowerUp(xPos, 0);
+                powerUp = new HealthPowerUp(powerupX, 0);
             }
             
             spaceObjects.add(powerUp);
