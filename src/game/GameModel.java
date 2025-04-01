@@ -119,8 +119,6 @@ public class GameModel {
      * Uses this.random to make EXACTLY 6 calls to random.nextInt() and 1 random.nextBoolean.
      */
     public void spawnObjects() {
-        Ship ship = getShip();
-
         // Check if asteroid should spawn
         boolean spawnAsteroid = random.nextInt(100) < spawnRate;
         // Asteroid x position
