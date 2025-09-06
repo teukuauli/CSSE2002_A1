@@ -9,6 +9,7 @@ import engine.art.sprites.SpriteGroup;
 import engine.game.Entity;
 import engine.game.HasTick;
 import engine.renderer.Renderable;
+import engine.art.ArtNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -88,4 +89,7 @@ public abstract class Tile extends Entity implements Interactable, Usable, Rende
         renderables.addAll(stackedEntities);
         return renderables;
     }
+}
+    public void updateSprite(String artName) throws engine.art.ArtNotFoundException {
+    setSprite(art.getSprite(artName));
 }
