@@ -28,10 +28,14 @@ public abstract class Tile extends Entity implements Interactable, Usable, Rende
 
     public void setArt(SpriteGroup art) {
         this.art = art;
-        updateSprite("default");
+        try {
+            updateSprite("default");
+        } catch (ArtNotFoundException e) {
+            // Default sprite not found, keep current sprite
+        }
     }
 
-    public void updateSprite(String artName) {
+    public void updateSprite(String artName) throws ArtNotFoundException {
         setSprite(art.getSprite(artName));
     }
 
@@ -89,7 +93,4 @@ public abstract class Tile extends Entity implements Interactable, Usable, Rende
         renderables.addAll(stackedEntities);
         return renderables;
     }
-}
-    public void updateSprite(String artName) throws engine.art.ArtNotFoundException {
-    setSprite(art.getSprite(artName));
 }
