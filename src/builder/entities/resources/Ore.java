@@ -44,9 +44,9 @@ public class Ore extends Entity implements Usable, HasTick {
 
     @Override
     public void use(EngineState state, GameState game) {
-        if (game.getInventory().getHolding() instanceof Jackhammer &&
-                tickCounter % 5 == 0 &&
-                value > 0) {
+        if (game.getInventory().getHolding() instanceof Jackhammer
+                && tickCounter % 5 == 0
+                && value > 0) {
 
             int damage = game.getPlayer().getDamage();
             int coinsToAdd = Math.min(damage, value);
