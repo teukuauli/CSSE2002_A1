@@ -6,9 +6,10 @@ package builder.entities.tiles;
 public class TileFactory {
 
     /**
-     * Constructs a TileFactory
+     * Constructs a TileFactory. (Not normally needed since all methods are static.)
      */
     public TileFactory() {
+        // no-op
     }
 
     /**
@@ -16,7 +17,7 @@ public class TileFactory {
      *
      * @param x      the x-coordinate
      * @param y      the y-coordinate
-     * @param symbol the tile type symbol
+     * @param symbol the tile type symbol: d=Dir t=Tilled Dirt w=Water g=Grass o=OreVein
      * @return a new {@link Tile} matching the symbol
      * @throws IllegalArgumentException if the symbol is unknown
      */
@@ -33,4 +34,9 @@ public class TileFactory {
             case 'g':
                 return new Grass(x, y);
             case 'o':
-                return new OreVein(x, y)
+                return new OreVein(x, y); 
+            default:
+                throw new IllegalArgumentException("Unknown tile symbol: " + symbol);
+        }
+    }
+}
