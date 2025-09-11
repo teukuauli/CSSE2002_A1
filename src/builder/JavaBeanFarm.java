@@ -53,7 +53,7 @@ public class JavaBeanFarm implements Game {
      * Constructs a new JavaBean Farm game using the given dimensions.
      *
      * @param dimensions The dimensions we want for this game.
-     * @throws IOException If the game is unable to find or open the default world map file.
+     * @throws IOException        If the game is unable to find or open the default world map file.
      * @throws WorldLoadException If the default world map file cannot be parsed successfully.
      */
     public JavaBeanFarm(Dimensions dimensions) throws IOException, WorldLoadException {
@@ -61,7 +61,7 @@ public class JavaBeanFarm implements Game {
         int centerY = dimensions.windowSize() / 2;
 
         // Stage 0: Remove Brutus after this stage
-//        this.brutus = new Brutus(centerX, centerY);
+        // this.brutus = new Brutus(centerX, centerY);
 
         // Stage 1: Uncomment this line to put the player in the screen center.
         this.playerManager = new PlayerManager(centerX, centerY);
@@ -83,16 +83,16 @@ public class JavaBeanFarm implements Game {
     /**
      * Ticks the internal game state forward by one frame.
      *
-     * @stage1part The player manager should be progressed via {@link
-     *     PlayerManager#tick(EngineState, GameState)}.
-     * @stage2part The world should be progressed via {@link BeanWorld#tick(EngineState,
-     *     GameState)}.
+     * @stage1part The player manager should be progressed via
+     *     {@link PlayerManager#tick(EngineState, GameState)}.
+     * @stage2part The world should be progressed via
+     *     {@link BeanWorld#tick(EngineState, GameState)}.
      * @param state The state of the engine, including the mouse, keyboard information and
      *     dimension. Useful for processing keyboard presses or mouse movement.
      */
     public void tick(EngineState state) {
         // Stage 0: Uncomment this line to progress Brutus.
-//        this.brutus.tick(state);
+        // this.brutus.tick(state);
 
         // Stage 1: Uncomment these lines to progress the player.
         GameState game = new JavaBeanGameState(world, playerManager.getPlayer(), inventory);
@@ -129,8 +129,8 @@ public class JavaBeanFarm implements Game {
         // Stage 1: Uncomment this line to render the player.
         renderables.addAll(this.playerManager.render());
 
-//        // Stage 0: Uncomment this line to render Brutus.
-//        renderables.add(this.brutus);
+        // Stage 0: Uncomment this line to render Brutus.
+       // renderables.add(this.brutus);
 
         // Stage 3: Uncomment this line to render the inventory overlays.
         for (Overlay overlay : overlays) {
