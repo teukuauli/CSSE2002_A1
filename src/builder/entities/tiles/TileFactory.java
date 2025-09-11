@@ -1,11 +1,25 @@
 package builder.entities.tiles;
 
+/**
+ * Factory class for creating {@link Tile} instances based on symbol input.
+ */
 public class TileFactory {
 
+    /**
+     * Constructs a TileFactory
+     */
     public TileFactory() {
-        // Constructor not needed according to hint
     }
 
+    /**
+     * Creates a tile at the given coordinates from a character symbol.
+     *
+     * @param x      the x-coordinate
+     * @param y      the y-coordinate
+     * @param symbol the tile type symbol
+     * @return a new {@link Tile} matching the symbol
+     * @throws IllegalArgumentException if the symbol is unknown
+     */
     public static Tile fromSymbol(int x, int y, char symbol) {
         switch (symbol) {
             case 'd':
@@ -19,9 +33,4 @@ public class TileFactory {
             case 'g':
                 return new Grass(x, y);
             case 'o':
-                return new OreVein(x, y);
-            default:
-                throw new IllegalArgumentException("Unknown tile symbol: " + symbol);
-        }
-    }
-}
+                return new OreVein(x, y)
