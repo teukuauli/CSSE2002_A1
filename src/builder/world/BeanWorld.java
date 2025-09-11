@@ -11,9 +11,17 @@ import engine.renderer.Dimensions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A simple implementation of the {@link World} interface.
+ * Stores and manages a collection of tiles, supports rendering,
+ * ticking, and querying tiles at given positions.
+ */
 public class BeanWorld implements RenderableGroup, Tickable, World {
     private List<Tile> tiles;
 
+    /**
+     * Constructs an empty BeanWorld with no tiles.
+     */
     public BeanWorld() {
         this.tiles = new ArrayList<>();
     }
