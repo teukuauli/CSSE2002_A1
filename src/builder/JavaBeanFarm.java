@@ -37,17 +37,17 @@ import java.util.List;
 public class JavaBeanFarm implements Game {
 
     // Stage 0: Uncomment this line to store brutus
-//     private final Entity brutus;
+//    private final Entity brutus;
 
     // Stage 1: Uncomment this line to manage the player.
-     private final PlayerManager playerManager;
+    private final PlayerManager playerManager;
 
     // Stage 2: Uncomment this line to manage the world.
-     private final BeanWorld world;
+    private final BeanWorld world;
 
     // Stage 3: Uncomment these lines to include the inventory.
-     private final Inventory inventory;
-     private final List<Overlay> overlays = new ArrayList<>();
+    private final Inventory inventory;
+    private final List<Overlay> overlays = new ArrayList<>();
 
     /**
      * Constructs a new JavaBean Farm game using the given dimensions.
@@ -61,23 +61,23 @@ public class JavaBeanFarm implements Game {
         int centerY = dimensions.windowSize() / 2;
 
         // Stage 0: Remove Brutus after this stage
-//         this.brutus = new Brutus(centerX, centerY);
+//        this.brutus = new Brutus(centerX, centerY);
 
         // Stage 1: Uncomment this line to put the player in the screen center.
-         this.playerManager = new PlayerManager(centerX, centerY);
+        this.playerManager = new PlayerManager(centerX, centerY);
 
         // Stage 2: Uncomment this line to load the default world from the file.
-         this.world = WorldBuilder.fromFile(dimensions, "resources/uqLogo.map");
+        this.world = WorldBuilder.fromFile(dimensions, "resources/uqLogo.map");
 
         // Stage 3: Uncomment these lines to create the default inventory.
-         int inventorySize = 4;
-         this.inventory = new TinyInventory(inventorySize);
-         inventory.setItem(0, new Bucket());
-         inventory.setItem(1, new Hoe());
-         inventory.setItem(2, new Jackhammer());
+        int inventorySize = 4;
+        this.inventory = new TinyInventory(inventorySize);
+        inventory.setItem(0, new Bucket());
+        inventory.setItem(1, new Hoe());
+        inventory.setItem(2, new Jackhammer());
 
-         this.overlays.add(new InventoryOverlay(dimensions, inventorySize));
-         this.overlays.add(new ResourceOverlay(dimensions));
+        this.overlays.add(new InventoryOverlay(dimensions, inventorySize));
+        this.overlays.add(new ResourceOverlay(dimensions));
     }
 
     /**
@@ -92,19 +92,19 @@ public class JavaBeanFarm implements Game {
      */
     public void tick(EngineState state) {
         // Stage 0: Uncomment this line to progress Brutus.
-//         this.brutus.tick(state);
+//        this.brutus.tick(state);
 
         // Stage 1: Uncomment these lines to progress the player.
-         GameState game = new JavaBeanGameState(world, playerManager.getPlayer(), inventory);
-         this.playerManager.tick(state, game);
+        GameState game = new JavaBeanGameState(world, playerManager.getPlayer(), inventory);
+        this.playerManager.tick(state, game);
 
         // Stage 2: Uncomment this line to progress the world.
-         this.world.tick(state, game);
+        this.world.tick(state, game);
 
         // Stage 3: Uncomment these lines to progress the inventory overlays.
-         for (Overlay overlay : overlays) {
+        for (Overlay overlay : overlays) {
             overlay.tick(state, game);
-         }
+        }
     }
 
     /**
@@ -124,18 +124,18 @@ public class JavaBeanFarm implements Game {
         List<Renderable> renderables = new ArrayList<>();
 
         // Stage 2: Uncomment this line to render the world.
-         renderables.addAll(this.world.render());
+        renderables.addAll(this.world.render());
 
         // Stage 1: Uncomment this line to render the player.
-         renderables.addAll(this.playerManager.render());
+        renderables.addAll(this.playerManager.render());
 
 //        // Stage 0: Uncomment this line to render Brutus.
-//         renderables.add(this.brutus);
+//        renderables.add(this.brutus);
 
         // Stage 3: Uncomment this line to render the inventory overlays.
-         for (Overlay overlay : overlays) {
+        for (Overlay overlay : overlays) {
             renderables.addAll(overlay.render());
-         }
+        }
 
         return renderables;
     }
