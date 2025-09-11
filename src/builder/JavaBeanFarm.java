@@ -37,7 +37,7 @@ import java.util.List;
 public class JavaBeanFarm implements Game {
 
     // Stage 0: Uncomment this line to store brutus
-//    private final Entity brutus;
+    // private final Entity brutus;
 
     // Stage 1: Uncomment this line to manage the player.
     private final PlayerManager playerManager;
@@ -130,7 +130,7 @@ public class JavaBeanFarm implements Game {
         renderables.addAll(this.playerManager.render());
 
         // Stage 0: Uncomment this line to render Brutus.
-       // renderables.add(this.brutus);
+        // renderables.add(this.brutus);
 
         // Stage 3: Uncomment this line to render the inventory overlays.
         for (Overlay overlay : overlays) {
