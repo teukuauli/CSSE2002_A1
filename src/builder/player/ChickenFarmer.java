@@ -10,16 +10,25 @@ import engine.game.Entity;
 import engine.timing.Animation;
 import engine.timing.AnimationDuration;
 
+/**
+ * Represents the player character "Chicken Farmer".
+ * The farmer can move in different directions, take damage,
+ * and perform use actions with items.
+ */
 public class ChickenFarmer extends Entity implements Player {
     private final SpriteGroup art = SpriteGallery.chickenFarmer;
     private final Animation leftAnimation;
     private final Animation rightAnimation;
     private Animation useAnimation;
 
+    /**
+     * Constructs a Chicken Farmer at the given coordinates.
+     *
+     * @param x the x-coordinate
+     * @param y the y-coordinate
+     */
     public ChickenFarmer(int x, int y) {
         super(x, y);
-
-        // Initialize animations
         this.leftAnimation = new Animation(
                 AnimationDuration.SLOW,
                 new Sprite[] {
@@ -42,11 +51,22 @@ public class ChickenFarmer extends Entity implements Player {
         setSprite(art.getSprite("down"));
     }
 
+    /**
+     * Returns the base damage dealt by the player.
+     *
+     * @return the damage value
+     */
     @Override
     public int getDamage() {
         return 2;
     }
 
+    /**
+     * Moves the farmer in the specified direction by the given amount.
+     *
+     * @param direction the direction to move
+     * @param amount    the number of units to move
+     */
     public void move(Direction direction, int amount) {
         switch (direction) {
             case NORTH:
@@ -68,6 +88,11 @@ public class ChickenFarmer extends Entity implements Player {
         }
     }
 
+    /**
+     * Updates animations and resets the default sprite each tick.
+     *
+     * @param state the current engine state
+     */
     @Override
     public void tick(EngineState state) {
         setSprite(art.getSprite("down"));
@@ -79,6 +104,11 @@ public class ChickenFarmer extends Entity implements Player {
         }
     }
 
+    /**
+     * Uses the given item, triggering its use animation if available.
+     *
+     * @param item the item to use
+     */
     public void use(Item item) {
         if (item == null) {
             return;
